@@ -1,0 +1,11 @@
+li {
+  list-style-type: none;
+
+  p {
+    cursor: pointer;
+
+    &.selected {
+      font-weight: bold;
+    }
+  }
+}

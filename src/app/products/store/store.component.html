@@ -1,0 +1,45 @@
+<a href="javascript:" class="show-categories" (click)="show = true">Categorias</a>
+<div class="container">
+  <div class="menu" [ngClass]="show ? 'show': ''">
+    <span class="close" [ngClass]="show ? 'show': ''" (click)="show = false">&times;</span>
+    <div class="categories">
+      <h4>Categorias</h4>
+      <ul class="categories-menu">
+        <app-category-menu-item *ngFor="let category of (categories | async)" [category]="category"></app-category-menu-item>
+      </ul>
+    </div>
+
+    <div class="filters">
+      <h4>Filtrar resultados</h4>
+      <div class="available">
+        <h5>Disponibilidad</h5>
+        <p><app-switch [initial]="available" (changed)="onFilterAvailableChange($event)"></app-switch> Disponible</p>
+        <p><app-switch [initial]="soldout" (changed)="onFilterSoldoutChange($event)"></app-switch> Agotado</p>
+      </div>
+      <div class="price">
+        <h5>Precio</h5> <h6>(Hasta {{price | currency : 'USD' : 'symbol' : '1.0'}})</h6>
+        <p><input (change)="onFilterPriceChange($event)" [(ngModel)]="price" type="range" min="1000" max="50000" step="1000"></p>
+      </div>
+      <div class="amount">
+        <h5>Cantidad en stock</h5> <h6>(Más de {{quantity}})</h6>
+        <p><input (change)="onFilterQuantityChange($event)" [(ngModel)]="quantity" type="range" min="25" max="1000" step="25"></p>
+      </div>
+    </div>
+
+    <div class="sorting">
+      <h4>Ordenar resultados</h4>
+      <div class="sort">
+        <div (click)="onSort(SORT.AVAILABLE_DESC)" [ngClass]="sort === SORT.AVAILABLE_DESC ? 'active': ''" class="available-asc">Disponibles</div>
+        <div (click)="onSort(SORT.AVAILABLE_ASC)" [ngClass]="sort === SORT.AVAILABLE_ASC ? 'active': ''" class="available-desc">Agotados</div>
+        <div (click)="onSort(SORT.PRICE_DESC)" [ngClass]="sort === SORT.PRICE_DESC ? 'active': ''" class="price-asc">Mayor precio</div>
+        <div (click)="onSort(SORT.PRICE_ASC)" [ngClass]="sort === SORT.PRICE_ASC ? 'active': ''" class="price-desc">Menor precio</div>
+        <div (click)="onSort(SORT.QUANTITY_DESC)" [ngClass]="sort === SORT.QUANTITY_DESC ? 'active': ''" class="quantity-asc">Mayor cantidad</div>
+        <div (click)="onSort(SORT.QUANTITY_ASC)" [ngClass]="sort === SORT.QUANTITY_ASC ? 'active': ''" class="quantity-desc">Menor cantidad</div>
+      </div>
+    </div>
+  </div>
+  <div class="products">
+    <h1>{{category?.name}}</h1>
+    <app-products [products]="(products | async)"></app-products>
+  </div>
+</div>

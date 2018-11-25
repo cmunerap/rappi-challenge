@@ -1,0 +1,24 @@
+<div class="container" *ngIf="(cartService.items$ | async) as items">
+  <div class="item" *ngFor="let item of items">
+    <div class="header">
+      <h1>{{item.product.name}}</h1>
+    </div>
+    <div class="quantity">
+      <input type="number" [value]="item.quantity" (change)="onChange($event, item)">
+    </div>
+    <div class="subtotal">
+      {{item.quantity * item.product.price | currency : 'USD' : 'symbol' : '1.0'}}
+    </div>
+    <div class="remove">
+      <a href="javascript:" (click)="onRemove(item.product)">Eliminar</a>
+    </div>
+  </div>
+  <div class="total">
+    <span>
+      {{total$ | async | currency : 'USD' : 'symbol' : '1.0'}}
+    </span>
+  </div>
+  <div class="pay">
+    <a href="javascript:" (click)="onPay()">Pagar</a>
+  </div>
+</div>

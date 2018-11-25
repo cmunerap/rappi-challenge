@@ -1,0 +1,18 @@
+<div class="product">
+  <div class="details">
+    <div class="name">
+      {{product.name}}
+    </div>
+    <div class="price">{{product.price | currency : 'USD' : 'symbol' : '1.0'}}</div>
+    <div class="quantity">{{product.quantity}}</div>
+    <div class="available" [ngClass]="product.available ? 'yes': 'no'">{{product.available ? 'DISPONIBLE': 'AGOTADO'}}</div>
+  </div>
+  <div class="cart">
+    <a href="javascript:" (click)="onAdd()" [ngClass]="!product.available ? 'soldout': ''">
+      Agregar al carro
+    </a>
+  </div>
+  <div class="added">
+    <span *ngIf="(quantity | async) as amount">{{amount}}</span>
+  </div>
+</div>

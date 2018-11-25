@@ -1,0 +1,44 @@
+@import './colors.scss';
+
+// body
+$body-background-color:               $color-000;
+
+// switch
+$switch-background-color:             $color-900;
+
+// navbar
+$navbar-background-color:             $color-900;
+$navbar-background-color-active:      $color-800;
+$navbar-text-color:                   $color-000;
+$navbar-added-background-color:       $color-000;
+$navbar-added-text-color:             $color-900;
+
+// menu
+$menu-background-color:               $color-000;
+$menu-close-background-color:         $color-700;
+$menu-close-color:                    $color-000;
+$menu-header-background-color:        $color-900;
+$menu-header-text-color:              $color-000;
+$menu-separator-color:                $color-900;
+$menu-sort-color:                     $color-100;
+$menu-sort-color-active:              $color-900;
+
+// product
+$product-background:                  $color-500;
+$product-text-color:                  $color-100;
+$product-button-background:           $color-600;
+$product-button-background-hover:     $color-700;
+$product-button-text-color:           $color-000;
+$product-added-background:            $color-900;
+$product-added-text:                  $color-000;
+
+// cart
+$cart-item-background:                $color-200;
+$cart-item-header-color:              $color-900;
+$cart-item-input-background-color:    $color-000;
+$cart-item-input-color:               $color-800;
+$cart-item-remove-background-color:   $color-900;
+$cart-item-remove-color:              $color-000;
+$cart-item-pay-background:            $color-400;
+$cart-item-pay-background-hover:      $color-700;
+$cart-item-pay-color:                 $color-000;

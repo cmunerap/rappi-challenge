@@ -1,0 +1,6 @@
+<li>
+  <p (click)="onCategorySelected()" [ngClass]="(selectedCategory | async)?.name === category.name ? 'selected': ''">{{category.name}}</p>
+  <ul class="categories-menu" *ngIf="expanded && category.sublevels">
+    <app-category-menu-item *ngFor="let cat of category.sublevels" [category]="cat"></app-category-menu-item>
+  </ul>
+</li>

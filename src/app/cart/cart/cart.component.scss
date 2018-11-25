@@ -1,0 +1,94 @@
+@import '../../../variables.scss';
+
+.container {
+  margin: 20px 200px;
+  font-size: 1.2em;
+
+  @media (max-width: 700px) {
+    margin: 10px;
+    font-size: 0.8em;
+  }
+
+  .item {
+    background-color: $cart-item-background;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 5px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+
+    .header {
+      h1 {
+        font-size: 1em;
+        color: $cart-item-header-color;
+        margin: 0;
+      }
+    }
+
+    .quantity {
+      text-align: center;
+      input {
+        font-size: 1em;
+        width: 40%;
+        background-color: $cart-item-input-background-color;
+        color: $cart-item-input-color;
+        border: 1px solid;
+        padding-left: 5px;
+
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
+
+    .subtotal {
+      text-align: center;
+      font-size: 1em;
+    }
+
+    .remove {
+      text-align: right;
+      a {
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.8em;
+        padding: 3px 10px;
+        background-color: $cart-item-remove-background-color;
+        color: $cart-item-remove-color;
+
+      }
+    }
+  }
+
+  .total {
+    text-align: center;
+    span {
+      display: inline-block;
+      background-color: lime;
+      color: black;
+      padding: 10px 40px;
+      margin: 15px 0;
+      border-radius: 10px;
+    }
+  }
+
+  .pay {
+    text-align: center;
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 15px 40px;
+      border-radius: 10px;
+      background-color: $cart-item-pay-background;
+      color: $cart-item-pay-color;
+      font-size: 1em;
+      transition: all ease 0.3s;
+
+      &:hover {
+        background-color: $cart-item-pay-background-hover;
+      }
+    }
+  }
+}

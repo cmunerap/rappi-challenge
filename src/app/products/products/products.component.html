@@ -1,0 +1,6 @@
+<div class="search">
+  <input type="text" [(ngModel)]="searchText" placeholder="Buscar un producto">
+</div>
+<div class="products" *ngIf="products">
+  <app-product *ngFor="let product of products | filterProducts: searchText" [product]="product"></app-product>
+</div>

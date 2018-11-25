@@ -1,0 +1,6 @@
+<ul id="navbar">
+  <li><a class="logo" routerLink="/">Tiendas EL BARATÓN</a></li>
+  <li class="right">
+    <a routerLink="/cart">Cart<span class="added" *ngIf="(quantity | async) as added">{{added}}</span></a>
+  </li>
+</ul>
