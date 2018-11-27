@@ -63,36 +63,36 @@ export class ProductsService {
       filter(products => products.products ? true : false),
       map(products =>
         products.products
-        .filter(
-          (product) => {
-            let condition = product.price <= search.price && product.quantity >= search.quantity;
-
-            if (search.category) {
-              // if category selected
-              condition =
-                condition && product.sublevel_id === search.category.id;
-            }
-
-            if (!search.available && !search.soldout) {
-              // no products to show
-              condition = condition && false;
-            } else if (search.available && search.soldout) {
-              // all products
-              condition = condition && true;
-            } else if (search.available) {
-              // only availables
-              condition = condition && product.available === true;
-            } else if (search.soldout) {
-              // only soldout
-              condition = condition && product.available === false;
-            }
-
-            return condition;
-          }
-        )
+        .filter(product => this.filtering(product, search))
         .sort(this.sorting[search.sort])
       )
     );
+  }
+
+  filtering(product: Product, search: Search) {
+    let condition = product.price <= search.price && product.quantity >= search.quantity;
+
+    if (search.category) {
+      // if category selected
+      condition =
+        condition && product.sublevel_id === search.category.id;
+    }
+
+    if (!search.available && !search.soldout) {
+      // no products to show
+      condition = condition && false;
+    } else if (search.available && search.soldout) {
+      // all products
+      condition = condition && true;
+    } else if (search.available) {
+      // only availables
+      condition = condition && product.available === true;
+    } else if (search.soldout) {
+      // only soldout
+      condition = condition && product.available === false;
+    }
+
+    return condition;
   }
 
   /**

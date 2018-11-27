@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class CartService {
-  private items = new BehaviorSubject<CartItem[]>([]);
+  public items = new BehaviorSubject<CartItem[]>([]);
   public items$: Observable<CartItem[]>;
 
   constructor() {
