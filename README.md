@@ -4,7 +4,7 @@ Solución para la prueba de habilidades de front end de Rappi
 
 ## Como se hizo?
 
-Este proyecto fue creado en Angular 7.
+Este proyecto fue creado en **Angular 7** utilizando **@angular/cli**.
 
 La aplicación sigue los patrones dados para proyectos de Angular según [Angular Style Guide](https://angular.io/guide/styleguide)
 
