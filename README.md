@@ -18,7 +18,7 @@ La aplicación tiene varios temas para cambiar la apariencia. Para cambiar el te
 
 ## Instalación
 
-  1. Instalar @angular/cli globalmente:
+  1. Instalar **@angular/cli** globalmente:
   ```
   npm install -g @angular/cli
   ```
