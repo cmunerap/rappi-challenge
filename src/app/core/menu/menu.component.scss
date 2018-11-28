@@ -5,7 +5,7 @@
   margin: 0;
   padding: 0 200px;
   @media (max-width: 700px) {
-    padding: 0 20px;
+    padding: 0 10px;
     font-size: 0.8em;
   }
   overflow: hidden;
@@ -16,6 +16,22 @@
 
     &.right {
       float: right;
+    }
+
+    &.menu {
+      display: none;
+      @media (max-width: 700px) {
+        display: block;
+      }
+      a {
+        display: inline-block;
+        padding: 10px 0px;
+        svg {
+          stroke: #fff;
+          fill: #fff;
+          height: 21px;
+        }
+      }
     }
 
     a {

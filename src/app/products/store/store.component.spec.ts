@@ -9,6 +9,7 @@ import { FilterProductsPipe } from '../shared/filter-products.pipe';
 import { ProductComponent } from '../product/product.component';
 import { ProductsService } from '../shared/products.service';
 import { ProductsServiceMock } from 'mocks/products.service';
+import { MenuService } from 'src/app/core/shared/menu.service';
 
 describe('StoreComponent', () => {
   let component: StoreComponent;
@@ -18,7 +19,10 @@ describe('StoreComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ StoreComponent, CategoryMenuItemComponent, SwitchComponent, ProductsComponent, FilterProductsPipe, ProductComponent ],
       imports: [FormsModule],
-      providers: [{provide: ProductsService, useClass: ProductsServiceMock}],
+      providers: [
+        {provide: ProductsService, useClass: ProductsServiceMock},
+        MenuService
+      ],
     })
     .compileComponents();
   }));

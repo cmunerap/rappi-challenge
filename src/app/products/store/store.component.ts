@@ -4,6 +4,7 @@ import { Product } from 'src/app/core/shared/core.models';
 import { ProductsService } from '../shared/products.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MenuService } from 'src/app/core/shared/menu.service';
 
 @Component({
   selector: 'app-store',
@@ -20,9 +21,9 @@ export class StoreComponent implements OnInit {
   private soldout = true;
   private sort: SORT = SORT.AVAILABLE_DESC;
   private SORT = SORT;
-  private show = false;
+  private visible: boolean;
 
-  constructor(private productsService: ProductsService) {
+  constructor(private productsService: ProductsService, private menuService: MenuService) {
 
   }
 
@@ -37,6 +38,9 @@ export class StoreComponent implements OnInit {
     });
 
     this.getProducts();
+
+    this.menuService.visible$
+    .subscribe(visible => this.visible = visible);
   }
 
   getProducts() {

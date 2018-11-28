@@ -10,6 +10,7 @@ import { CoreModule } from '../core/core.module';
 import { FilterProductsPipe } from './shared/filter-products.pipe';
 import { CartModule } from '../cart/cart.module';
 import { CartService } from '../core/shared/cart.service';
+import { MenuService } from '../core/shared/menu.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { CartService } from '../core/shared/cart.service';
     CartModule
   ],
   declarations: [StoreComponent, CategoryMenuItemComponent, ProductsComponent, ProductComponent, FilterProductsPipe],
-  providers: [ProductsService, CartService]
+  providers: [ProductsService, CartService, MenuService]
 })
 export class ProductsModule { }

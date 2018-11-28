@@ -5,6 +5,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SwitchComponent } from './switch/switch.component';
 import { CartService } from './shared/cart.service';
 import { MenuComponent } from './menu/menu.component';
+import { MenuService } from './shared/menu.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { MenuComponent } from './menu/menu.component';
   ],
   declarations: [SwitchComponent, MenuComponent],
   exports: [SwitchComponent, MenuComponent],
-  providers: [CartService]
+  providers: [CartService, MenuService]
 })
 export class CoreModule { }

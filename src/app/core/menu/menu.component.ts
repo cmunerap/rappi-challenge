@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../shared/cart.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MenuService } from '../shared/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class MenuComponent implements OnInit {
   private quantity: Observable<number>;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private menuService: MenuService) { }
 
   ngOnInit() {
     this.quantity = this.cartService.items$

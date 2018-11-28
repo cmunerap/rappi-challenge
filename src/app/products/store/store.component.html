@@ -1,7 +1,6 @@
-<a href="javascript:" class="show-categories" (click)="show = true">Categorias</a>
 <div class="container">
-  <div class="menu" [ngClass]="show ? 'show': ''">
-    <span class="close" [ngClass]="show ? 'show': ''" (click)="show = false">&times;</span>
+  <div class="menu" [ngClass]="visible ? 'show': ''">
+    <span class="close" [ngClass]="visible ? 'show': ''" (click)="menuService.hide()">&times;</span>
     <div class="categories">
       <h4>Categorias</h4>
       <ul class="categories-menu" *ngIf="categories">
